@@ -21,7 +21,7 @@ headerTransition.addEventListener('mouseleave', event => {
 document.addEventListener('keydown', event => {
     if (event.key === "-") {
         logoHeading.classList.add('off');
-        alert(`You pressed ${event.key}, and you subtracted the Fun Bus logo from the page. Click any key to bring it back!.`)
+        alert(`You pressed ${event.key}, and you subtracted the Fun Bus logo from the page. Click any other key to bring it back!.`)
     } else {
         logoHeading.classList.remove('off');
     }
@@ -83,10 +83,12 @@ window.addEventListener('scroll', event => {
 // }
 // headerTransition.addEventListener('select', textSelection);
 
-// 9. DBLCLICK Event Listener:
-button.addEventListener('dblclick', event => {
-    button.innerHTML = "Changed";
-})
+// 9. DBLCLICK Event Listener: Upon user double click, the intro image goes away.
+introImage.addEventListener('dblclick', event => {
+    introImage.classList.add('off');
+});
+
+// 10. 
 
 
 
