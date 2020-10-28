@@ -1,4 +1,5 @@
 // Your code goes here
+// Task 2a:
 //Variables with their querySelectors 
 const headerTransition = document.querySelector('header');
 const logoHeading = document.querySelector('.logo-heading');
@@ -6,7 +7,7 @@ const introImage = document.querySelector('.intro img');
 const button = Array.from(document.querySelectorAll('.btn'));
 const contactLink = document.querySelectorAll('.nav-link');
 const images = Array.from(document.querySelectorAll('img'));
-console.log(images);
+const body = document.querySelector('body');
 
 // 1. & 2. MOUSEOVER Event Listener && MOUSELEAVE Event Listener, changes background color of header region when mouse is inside of it.
 headerTransition.addEventListener('mouseover', event => {
@@ -46,7 +47,7 @@ introImage.addEventListener('wheel', zoom);
 
 // 5. LOAD Event Listener: When the window loads, this alert pops up.
 window.addEventListener('load', event =>{
-    alert(`Welcome to Fun Bus! 😎🚌 Double click the images for something fun!`);
+    alert(`Welcome to Fun Bus! 😎🚌 Double click the bus image for something fun!`);
 });
 
 // 6. FOCUS Event Listener: When user clicks any 'Sign Me Up!' button, the 'Contact' link in the header is focused.
@@ -88,7 +89,27 @@ introImage.addEventListener('dblclick', event => {
     introImage.classList.add('off');
 });
 
-// 10. 
+// 10. CONTEXTMENU Event Listener: Disables the 'right click' menu on all images of the page, that would normally come up.
+images.forEach(element => (element.addEventListener('contextmenu', event => {
+    event.preventDefault();
+})));
+
+// Task 2b:
+// Nest two similar events somewhere in the site and prevent the event propagation properly. Remember not all event types bubble.
+logoHeading.addEventListener('click', event => {
+    logoHeading.style.backgroundColor = "#32A2B8";
+    event.stopPropagation();
+});
+headerTransition.addEventListener('click', stopProp => {
+    headerTransition.style.backgroundColor = "#32A2B8";
+});
+
+// Task 2c:
+// Stop the navigation items from refreshing the page by using `preventDefault()`
+const navigationItems = Array.from(document.querySelectorAll('.nav-link'));
+navigationItems.forEach(cb => (cb.addEventListener('click', event => {
+    event.preventDefault();
+})));   
 
 
 
