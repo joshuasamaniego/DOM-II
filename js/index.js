@@ -100,7 +100,7 @@ logoHeading.addEventListener('click', event => {
     logoHeading.style.backgroundColor = "#32A2B8";
     event.stopPropagation();
 });
-headerTransition.addEventListener('click', stopProp => {
+headerTransition.addEventListener('click', event => {
     headerTransition.style.backgroundColor = "#32A2B8";
 });
 
